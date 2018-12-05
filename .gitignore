@@ -11,3 +11,4 @@ logs
 
 CNAME
 .env
+api.js
