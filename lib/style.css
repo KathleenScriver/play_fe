@@ -1,7 +1,5 @@
 /* header */
-.pointer {
-    cursor: pointer;
-  }
+
 header {
  background: #710006;
  text-align: center;
@@ -9,10 +7,7 @@ header {
  height: 80px;
  padding: 0 25px;
 }
-input[type="submit"] {
 
-
-}
 
 header nav {
   float: right;
@@ -24,6 +19,18 @@ header h1 {
  height: 35px;
  width: 35px;
  margin-top: 8px;
+}
+.submit-button {
+  background-color: #B5B0AF;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
 }
 .searchField {
   width: 200px;
@@ -37,6 +44,7 @@ header h1 {
 }
 .form {
   font-size: 20px;
+  padding: 20px;
 }
 
 
