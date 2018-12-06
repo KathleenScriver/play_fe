@@ -9,7 +9,7 @@
     "build": "./node_modules/webpack/bin/webpack.js",
     "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register",
     "start": "node server.js",
-    "heroku-postbuild": "npm run build"
+    "heroku-postbuild": "webpack -p"
   },
   "repository": {
     "type": "git",
