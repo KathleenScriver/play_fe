@@ -56,7 +56,7 @@
 	  fetch(url).then(function (response) {
 	    return response.json();
 	  }).then(function (musicInfo) {
-	    return displaySongs(songInformation);
+	    return displaySongs(musicInfo);
 	  }).catch(function (error) {
 	    return console.log({ error: error });
 	  });
@@ -65,8 +65,16 @@
 	}; // This file is in the entry point in your webpack config.
 
 
-	var displaySongs = function displaySongs(songInformation) {
-	  console.log(songInformation);
+	var displaySongs = function displaySongs(musicInfo) {
+	  var songs = musicInfo.message.body.track_list;
+	  songs.forEach(function (song) {
+	    var name = song.track.track_name;
+	    var artist_name = song.track.artist_name;
+	    var genre = "Rock";
+	    var songRating = song.track.track_rating;
+
+	    $('.song-search').append('\n       <article class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artist_name + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n         <button id="' + name + (artist - name) + '"\n           class=\'favorite-button\'>Favorite</button>\n        </article>\n      ');
+	  });
 	};
 
 	$('.submit-button').on('click', getSongResults);
