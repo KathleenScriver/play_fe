@@ -10,5 +10,5 @@ logs
 *.log
 
 CNAME
-.env
 api.js
+

@@ -1,3 +1,47 @@
+/* header */
+.pointer {
+    cursor: pointer;
+  }
+header {
+ background: #710006;
+ text-align: center;
+ color: white;
+ height: 80px;
+ padding: 0 25px;
+}
+input[type="submit"] {
+
+
+}
+
+header nav {
+  float: right;
+}
+
+header h1 {
+ float: left;
+ font-size: 30px;
+ height: 35px;
+ width: 35px;
+ margin-top: 8px;
+}
+.searchField {
+  width: 200px;
+  height: 30px;
+  // margin-bottom: .5em;
+  padding-left: 0.25em;
+  font-size: 1em;
+}
+.searchField::placeholder {
+  color: #E6E7E8;
+}
+.form {
+  font-size: 20px;
+}
+
+
+
+/* Body */
 body {
-  background-color: lightblue;
+ background-color: #EF3E4D;
 }
