@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -42,16 +42,14 @@
 /************************************************************************/
 /******/ ([
 /* 0 */
-
-  
 /***/ (function(module, exports, __webpack_require__) {
 
 	'use strict';
 
 	var _api = __webpack_require__(1);
 
-	var getSongResults = function getSongResults(artist) {
-	  // const artist = $('.search-field').val();
+	var getSongResults = function getSongResults() {
+	  var artist = $('.search-field').val();
 	  var apiKey = _api.MUSIXMATCH_API_KEY;
 	  var url = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=' + apiKey + '&q_artist=' + artist + '&page_size=50';
 
@@ -71,17 +69,15 @@
 	  var songs = musicInfo.message.body.track_list;
 	  songs.forEach(function (song) {
 	    var name = song.track.track_name;
-	    var artist_name = song.track.artist_name;
+	    var artistName = song.track.artist_name;
 	    var genre = "Rock";
 	    var songRating = song.track.track_rating;
 
-	    $('.song-search').append('\n       <article class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artist_name + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n         <button id="' + name + (artist - name) + '"\n           class=\'favorite-button\'>Favorite</button>\n        </article>\n      ');
+	    $('.song-search').append('\n       <article class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n         <button id="' + name + artistName + '"\n           class=\'favorite-button\'>Favorite</button>\n        </article>\n      ');
 	  });
 	};
 
 	$('.submit-button').on('click', getSongResults);
-
-	getSongResults("Queen");
 
 /***/ }),
 /* 1 */
@@ -93,7 +89,6 @@
 	  value: true
 	});
 	var MUSIXMATCH_API_KEY = exports.MUSIXMATCH_API_KEY = "b321359d9ba9b1a4f059db39f0b4c442";
-
 
 /***/ })
 /******/ ]);
