@@ -1,7 +1,5 @@
 /* header */
-.pointer {
-    cursor: pointer;
-  }
+
 header {
  background: #710006;
  text-align: center;
@@ -9,10 +7,7 @@ header {
  height: 80px;
  padding: 0 25px;
 }
-input[type="submit"] {
 
-
-}
 
 header nav {
   float: right;
@@ -20,15 +15,32 @@ header nav {
 
 header h1 {
  float: left;
+ color: #fffdd0;
  font-size: 30px;
  height: 35px;
  width: 35px;
  margin-top: 8px;
+ padding: 20px;
+ font-family: Quicksand;
+ font-weight: 800;
+}
+.submit-button {
+  background-color: #B5B0AF;
+  color: #710006;
+  border: none;
+  padding: 8px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+  font-family: Quicksand;
 }
 .searchField {
   width: 200px;
   height: 30px;
-  // margin-bottom: .5em;
+  margin-bottom: .5em;
   padding-left: 0.25em;
   font-size: 1em;
 }
@@ -37,6 +49,7 @@ header h1 {
 }
 .form {
   font-size: 20px;
+  padding: 20px;
 }
 
 
