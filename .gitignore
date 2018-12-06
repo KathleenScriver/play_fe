@@ -8,4 +8,7 @@ node_modules
 # Logs
 logs
 *.log
+
 CNAME
+api.js
+
