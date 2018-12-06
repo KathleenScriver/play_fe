@@ -36,7 +36,7 @@ header h1 {
   font-family: Quicksand;
 }
 
-.searchField {
+.search-field {
   width: 200px;
   height: 30px;
   margin-bottom: .5em;
@@ -44,7 +44,7 @@ header h1 {
   font-size: 1em;
 }
 
-.searchField::placeholder {
+.search-field::placeholder {
   color: #E6E7E8;
 }
 .form {
