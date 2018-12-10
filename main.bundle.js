@@ -46,11 +46,11 @@
 
 	'use strict';
 
-	var _api = __webpack_require__(1);
+	// This file is in the entry point in your webpack config.
 
 	var getSongResults = function getSongResults() {
 	  var artist = $('.search-field').val();
-	  var apiKey = _api.MUSIXMATCH_API_KEY;
+	  var apiKey = ("b321359d9ba9b1a4f059db39f0b4c442");
 	  var url = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=' + apiKey + '&q_artist=' + artist + '&page_size=50&s_track_rating=desc';
 
 	  fetch(url).then(function (response) {
@@ -62,11 +62,11 @@
 	  });
 
 	  $('.search-field').val('');
-	}; // This file is in the entry point in your webpack config.
-
+	};
 
 	var displaySongs = function displaySongs(musicInfo) {
 	  var songs = musicInfo.message.body.track_list;
+
 	  songs.forEach(function (song) {
 	    var name = song.track.track_name;
 	    var artistName = song.track.artist_name;
@@ -79,17 +79,6 @@
 	};
 
 	$('.submit-button').on('click', getSongResults);
-
-/***/ }),
-/* 1 */
-/***/ (function(module, exports) {
-
-	"use strict";
-
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var MUSIXMATCH_API_KEY = exports.MUSIXMATCH_API_KEY = "ec2af6b6422141c1db6d05489b2a6be9";
 
 /***/ })
 /******/ ]);

@@ -9,6 +9,4 @@ node_modules
 logs
 *.log
 
-CNAME
-api.js
-
+.env
