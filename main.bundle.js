@@ -71,7 +71,7 @@
 	    var name = song.track.track_name;
 	    var artistName = song.track.artist_name;
 			var noGenre = song.track.primary_genres.music_genre_list.length === 0;
-	    var genre = noGenre ? "Genre not found" : song.track.primary_genres.music_genre_list[0].music_genre.music_genre_name;
+	    var genre = noGenre ? "N/A" : song.track.primary_genres.music_genre_list[0].music_genre.music_genre_name;
 	    var songRating = song.track.track_rating;
 
 	    $('.song-search').append('\n       <article class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n         <button id="' + name + artistName + '"\n           class=\'favorite-button\'>Favorite</button>\n        </article>\n      ');
