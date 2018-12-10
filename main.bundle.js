@@ -51,7 +51,7 @@
 	var getSongResults = function getSongResults() {
 	  var artist = $('.search-field').val();
 	  var apiKey = _api.MUSIXMATCH_API_KEY;
-	  var url = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=' + apiKey + '&q_artist=' + artist + '&page_size=50';
+	  var url = `https://api.musixmatch.com/ws/1.1/track.search?apikey=${apiKey}&q_artist=${artist}&page_size=50&s_track_rating=desc`;
 
 	  fetch(url).then(function (response) {
 	    return response.json();
