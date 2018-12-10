@@ -34,7 +34,7 @@
 /******/ 	__webpack_require__.c = installedModules;
 
 /******/ 	// __webpack_public_path__
-/******/ 	__webpack_require__.p = "";
+/******/ 	__webpack_require__.p = "/";
 
 /******/ 	// Load entry module and return exports
 /******/ 	return __webpack_require__(0);
@@ -51,7 +51,7 @@
 	var getSongResults = function getSongResults() {
 	  var artist = $('.search-field').val();
 	  var apiKey = _api.MUSIXMATCH_API_KEY;
-	  var url = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=' + apiKey + '&q_artist=' + artist + '&page_size=50';
+	  var url = 'https://api.musixmatch.com/ws/1.1/track.search?apikey=' + apiKey + '&q_artist=' + artist + '&page_size=50&s_track_rating=desc';
 
 	  fetch(url).then(function (response) {
 	    return response.json();
@@ -70,7 +70,8 @@
 	  songs.forEach(function (song) {
 	    var name = song.track.track_name;
 	    var artistName = song.track.artist_name;
-	    var genre = "Rock";
+	    var noGenre = song.track.primary_genres.music_genre_list.length === 0;
+	    var genre = noGenre ? "N/A" : song.track.primary_genres.music_genre_list[0].music_genre.music_genre_name;
 	    var songRating = song.track.track_rating;
 
 	    $('.song-search').append('\n       <article class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n         <button id="' + name + artistName + '"\n           class=\'favorite-button\'>Favorite</button>\n        </article>\n      ');
@@ -88,7 +89,7 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var MUSIXMATCH_API_KEY = exports.MUSIXMATCH_API_KEY = "b321359d9ba9b1a4f059db39f0b4c442";
+	var MUSIXMATCH_API_KEY = exports.MUSIXMATCH_API_KEY = "ec2af6b6422141c1db6d05489b2a6be9";
 
 /***/ })
 /******/ ]);
