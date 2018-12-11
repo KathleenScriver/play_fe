@@ -1,6 +1,9 @@
 {
   "name": "self-directed-fe-starter",
   "version": "1.0.0",
+  "engines": {
+    "node": "10.13.0"
+  }
   "description": "Starter kit for Turing School's BEE M4 Self-Directed Project",
   "main": "index.js",
   "proxy": "https://localhost:3000/",
@@ -8,8 +11,7 @@
     "dev": "./node_modules/webpack-dev-server/bin/webpack-dev-server.js",
     "build": "./node_modules/webpack/bin/webpack.js",
     "test": "./node_modules/mocha/bin/mocha --compilers js:babel-core/register",
-    "start": "node server.js",
-    "heroku-postbuild": "webpack -p"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
