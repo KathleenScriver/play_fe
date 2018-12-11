@@ -92,6 +92,11 @@ body {
   border-radius: 30px;
 }
 
+.favorites table {
+  margin-top: 5px;
+  width: 100%;
+}
+
 .playlists {
   background-color: #fffdd0;
   opacity: 0.6;
