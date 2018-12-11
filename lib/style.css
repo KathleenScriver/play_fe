@@ -93,6 +93,12 @@ body {
   margin: 8px;
   border-radius: 30px;
 }
+.playlists h2 {
+  font-size: 4rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 4% 0% 4%;
+}
 
 .song-search {
   display: flex;
@@ -106,4 +112,11 @@ body {
   margin: 8px;
   width: auto;
   line-height: 1.2;
+}
+.playlist-name {
+  font-size: 2rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 2%;
+  cursor: pointer;
 }

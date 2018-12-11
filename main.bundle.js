@@ -112,6 +112,26 @@
 	  $('.messages').html('');
 	};
 
+	var getPlaylists = function getPlaylists() {
+	  fetch(playBackUrl + '/playlists').then(function (response) {
+	    return response.json();
+	  }).then(function (playlistsInfo) {
+	    return displayPlaylists(playlistsInfo);
+	  }).catch(function (error) {
+	    return console.log({ error: error });
+	  });
+	};
+
+	var displayPlaylists = function displayPlaylists(playlistsInfo) {
+	  var playlists = playlistsInfo;
+
+	  playlists.forEach(function (playlist, index) {
+	    var playlist_name = playlist.playlist_name;
+
+	    $('.playlists').append('\n       <article id="playlist-' + index + '" class=\'retrieved-playlist\'>\n         <p class=\'playlist-name\'>' + playlist_name + '</p>\n\n        </article>');
+	  });
+	};
+
 	$('.submit-button').on('click', getSongResults);
 
 	$("#search-field").keypress(function (e) {
@@ -123,6 +143,8 @@
 
 	$('.song-search').on('click', '.favorite-button', favoriteSong);
 	$(document).on('click', clearMessages);
+
+	getPlaylists();
 
 /***/ })
 /******/ ]);
