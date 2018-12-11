@@ -31,7 +31,7 @@
     "chromedriver": "^2.44.1",
     "css-loader": "^0.26.0",
     "jquery": "^3.1.1",
-    "mocha": "^3.5.3",
+    "mocha": "^5.2.0",
     "mocha-loader": "^1.0.0",
     "node-libs-browser": "^1.0.0",
     "node-sass": "^4.11.0",
@@ -41,7 +41,7 @@
     "webdriverjs": "^1.7.5",
     "webpack": "^1.14.0",
     "webpack-command": "^0.4.2",
-    "webpack-dev-server": "^1.16.2"
+    "webpack-dev-server": "^3.1.10"
   },
   "dependencies": {
     "dotenv": "^6.2.0",
