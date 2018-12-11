@@ -47,6 +47,7 @@ header h1 {
 .search-field::placeholder {
   color: #E6E7E8;
 }
+
 .form {
   font-size: 20px;
   padding: 20px;
@@ -61,10 +62,11 @@ body {
   width: auto;
   font-size: 16px;
   background-color: #FDBBC1;
-
+  text-align: center;
 }
+
 .messages p {
-  margin: 2px;
+  margin: 4px;
 }
 
 .song-search {
