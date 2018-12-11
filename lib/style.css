@@ -57,6 +57,16 @@ body {
  background-color: #EF3E4D;
 }
 
+.messages {
+  width: auto;
+  font-size: 16px;
+  background-color: #FDBBC1;
+
+}
+.messages p {
+  margin: 2px;
+}
+
 .song-search {
   display: flex;
   flex-direction: column;
