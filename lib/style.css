@@ -56,6 +56,7 @@ header h1 {
 /* Body */
 body {
  background-color: #EF3E4D;
+ font-family: Quicksand;
 }
 
 .messages {
@@ -67,6 +68,30 @@ body {
 
 .messages p {
   margin: 4px;
+}
+
+.main-content {
+  display: flex;
+  justify-content: space-around;
+  align-content: center;
+  width: 100%;
+  height: 700px;
+}
+
+.favorites {
+  background-color: #fffdd0;
+  opacity: 0.6;
+  width: 60%;
+  margin: 8px;
+  border-radius: 30px;
+}
+
+.playlists {
+  background-color: #fffdd0;
+  opacity: 0.6;
+  width: 40%;
+  margin: 8px;
+  border-radius: 30px;
 }
 
 .song-search {
