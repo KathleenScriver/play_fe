@@ -99,6 +99,11 @@ body {
   flex-direction: column;
   width: 100%;
   height: 80%;
+  z-index: 2;
+  position: absolute;
+  top: 100px;
+  left: 5px;
+  background-color: #FDBBC1;
 }
 
 .searched-song {
