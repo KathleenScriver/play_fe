@@ -122,6 +122,12 @@ th, td {
 tr:hover {
   background-color: #f5f5f5;
 }
+.favorites h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 4% 0% 4%;
+}
 
 .playlists {
   background-color: #fffdd0;
@@ -129,6 +135,29 @@ tr:hover {
   width: 30%;
   margin: 8px;
   border-radius: 30px;
+}
+.playlist-songs {
+  display: none;
+  width: 800px;
+  height: 2000px;
+  z-index: 2;
+  position: absolute;
+  top: 90px;
+  left: 5px;
+  background-color: #FDBBC1;
+}
+.playlists h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 4% 0% 4%;
+}
+
+.playlist-songs h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 4% 0% 4%;
 }
 
 .song-search {
@@ -147,4 +176,11 @@ tr:hover {
   margin: 8px;
   width: auto;
   line-height: 1.2;
+}
+.playlist-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-align: center;
+  padding: 2%;
+  cursor: pointer;
 }

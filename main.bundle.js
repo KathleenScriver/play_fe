@@ -57,15 +57,17 @@
 	  fetch(playBackUrl + '/favorites').then(function (response) {
 	    return response.json();
 	  }).then(function (favoriteInfo) {
-	    return displayFavorites(favroiteInfo);
+	    return displayFavorites(favoriteInfo);
 	  }).catch(function (error) {
 	    return console.log({ error: error });
 	  });
 	};
 
-	var displayFavorites = function displayFavorites(favoriteInfo) {
-	  console.log(favoriteInfo);
-	  $('.favorites table').html('<tr><td>');
+	var displayFavorites = function displayFavorites(favoriteSongs) {
+	  favoriteSongs.forEach(function (song) {
+	    console.log(song);
+	    $('#favorite-song-list').append('<tr>\n      <td>' + song.name + '</td>\n      <td>' + song.artist_name + '</td>\n      <td>' + song.genre + '</td>\n      <td>' + song.song_rating + '</td>\n      <td><button>Add to Playlist</button></td></tr>');
+	  });
 	};
 
 	var getSongResults = function getSongResults() {
@@ -133,6 +135,54 @@
 	  $('.messages').html('');
 	};
 
+	var getPlaylists = function getPlaylists() {
+	  fetch(playBackUrl + '/playlists').then(function (response) {
+	    return response.json();
+	  }).then(function (playlistsInfo) {
+	    return displayPlaylists(playlistsInfo);
+	  }).catch(function (error) {
+	    return console.log({ error: error });
+	  });
+	};
+
+	var displayPlaylists = function displayPlaylists(playlistsInfo) {
+	  var playlists = playlistsInfo;
+
+	  playlists.forEach(function (playlist, index) {
+	    var playlist_name = playlist.playlist_name;
+	    var id = playlist.id;
+
+	    $('.playlists').append('\n      <article id="playlist-' + index + '" class=\'retrieved-playlist\'>\n        <div class=\'playlist-name\'>\n          <p id="' + id + '">' + playlist_name + '</p>\n        </div>\n      </article>');
+	  });
+	};
+
+	var getOnePlaylist = function getOnePlaylist(event) {
+	  var playlist_name = $(event.target).text();
+	  var id = $(event.target).attr('id');
+	  fetch(playBackUrl + '/playlists/' + id + '/songs').then(function (response) {
+	    return response.json();
+	  }).then(function (playlistSongs) {
+	    return displayOnePlaylistsSongs(playlistSongs, playlist_name);
+	  }).catch(function (error) {
+	    return console.log({ error: error });
+	  });
+	};
+
+	var displayOnePlaylistsSongs = function displayOnePlaylistsSongs(playlist) {
+	  $('.playlist-songs').css('display', 'block');
+	  var playlist_name = playlist.playlist_name;
+	  var songs = playlist.songs;
+	  $('.playlist-songs h2').text('' + playlist_name);
+
+	  songs.forEach(function (song, index) {
+	    var name = song.name;
+	    var artistName = song.artist_name;
+	    var genre = song.genre;
+	    var songRating = song.song_rating;
+	    $('.playlist-songs').append('\n       <article id="search-result-' + index + '" class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n        </article>\n      ');
+	  });
+	};
+
 	$('.submit-button').on('click', getSongResults);
 
 	$("#search-field").keypress(function (e) {
@@ -146,6 +196,9 @@
 	$(document).on('click', clearMessages);
 	$('.home').on('click', showMainDisplay);
 
+	$('.playlists').on('click', '.playlist-name', getOnePlaylist);
+
+	getPlaylists();
 	getFavorites();
 
 /***/ })
