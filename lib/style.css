@@ -193,4 +193,17 @@ tr:hover {
   padding: 10px;
   border-radius: 15px;
   text-align: center;
+  position: relative;
+}
+
+.favorite-button {
+  position: absolute;
+  left: 50%;
+  bottom: 20px;
+  transform: translate(-50%);
+  background-color: #EF3E4D;
+  border-radius: 20px;
+  font-style: Quicksand;
+  border: none;
+  color: #fffdd0;
 }
