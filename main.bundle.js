@@ -127,8 +127,37 @@
 
 	  playlists.forEach(function (playlist, index) {
 	    var playlist_name = playlist.playlist_name;
+	    var id = playlist.id;
 
-	    $('.playlists').append('\n       <article id="playlist-' + index + '" class=\'retrieved-playlist\'>\n         <p class=\'playlist-name\'>' + playlist_name + '</p>\n\n        </article>');
+	    $('.playlists').append('\n      <article id="playlist-' + index + '" class=\'retrieved-playlist\'>\n        <div class=\'playlist-name\'>\n          <p id="' + id + '">' + playlist_name + '</p>\n        </div>\n      </article>');
+	  });
+	};
+
+	var getOnePlaylist = function getOnePlaylist(event) {
+	  var playlist_name = $(event.target).siblings('p.playlist_name').prevObject[0].innerHTML;
+	  var id = $(event.target).siblings('p.playlist_name').prevObject[0].id;
+	  fetch(playBackUrl + '/playlists/' + id + '/songs').then(function (response) {
+	    return response.json();
+	  }).then(function (playlistSongs) {
+	    return displayOnePlaylistsSongs(playlistSongs, playlist_name);
+	  }).catch(function (error) {
+	    return console.log({ error: error });
+	  });
+	};
+
+	var displayOnePlaylistsSongs = function displayOnePlaylistsSongs(playlist) {
+	  var playlist_name = playlist.playlist_name;
+	  var songs = playlist.songs;
+	  $('.favorites h2').text('' + playlist_name);
+	  // $('favorites').append(`
+	  //   <h2>${playlist_name}</h2>
+	  //   `)
+	  songs.forEach(function (song, index) {
+	    var name = song.name;
+	    var artistName = song.artist_name;
+	    var genre = song.genre;
+	    var songRating = song.song_rating;
+	    $('.favorites').append('\n       <article id="search-result-' + index + '" class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n        </article>\n      ');
 	  });
 	};
 
@@ -143,6 +172,8 @@
 
 	$('.song-search').on('click', '.favorite-button', favoriteSong);
 	$(document).on('click', clearMessages);
+
+	$('.playlists').on('click', '.playlist-name', getOnePlaylist);
 
 	getPlaylists();
 

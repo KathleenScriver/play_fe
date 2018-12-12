@@ -85,6 +85,12 @@ body {
   margin: 8px;
   border-radius: 30px;
 }
+.favorites h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 4% 0% 4%;
+}
 
 .playlists {
   background-color: #fffdd0;
@@ -94,7 +100,7 @@ body {
   border-radius: 30px;
 }
 .playlists h2 {
-  font-size: 4rem;
+  font-size: 2.5rem;
   font-weight: 800;
   text-align: center;
   padding: 4% 0% 4%;
@@ -114,7 +120,7 @@ body {
   line-height: 1.2;
 }
 .playlist-name {
-  font-size: 2rem;
+  font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
   padding: 2%;
