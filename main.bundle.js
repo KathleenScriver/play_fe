@@ -174,6 +174,54 @@
 	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
+	var getPlaylists = function getPlaylists() {
+	  fetch(playBackUrl + '/playlists').then(function (response) {
+	    return response.json();
+	  }).then(function (playlistsInfo) {
+	    return displayPlaylists(playlistsInfo);
+	  }).catch(function (error) {
+	    return console.log({ error: error });
+	  });
+	};
+
+	var displayPlaylists = function displayPlaylists(playlistsInfo) {
+	  var playlists = playlistsInfo;
+
+	  playlists.forEach(function (playlist, index) {
+	    var playlist_name = playlist.playlist_name;
+	    var id = playlist.id;
+
+	    $('.playlists').append('\n      <article id="playlist-' + index + '" class=\'retrieved-playlist\'>\n        <div class=\'playlist-name\'>\n          <p id="' + id + '">' + playlist_name + '</p>\n        </div>\n      </article>');
+	  });
+	};
+
+	var getOnePlaylist = function getOnePlaylist(event) {
+	  var playlist_name = $(event.target).text();
+	  var id = $(event.target).attr('id');
+	  fetch(playBackUrl + '/playlists/' + id + '/songs').then(function (response) {
+	    return response.json();
+	  }).then(function (playlistSongs) {
+	    return displayOnePlaylistsSongs(playlistSongs, playlist_name);
+	  }).catch(function (error) {
+	    return console.log({ error: error });
+	  });
+	};
+
+	var displayOnePlaylistsSongs = function displayOnePlaylistsSongs(playlist) {
+	  $('.playlist-songs').css('display', 'block');
+	  var playlist_name = playlist.playlist_name;
+	  var songs = playlist.songs;
+	  $('.playlist-songs h2').text('' + playlist_name);
+
+	  songs.forEach(function (song, index) {
+	    var name = song.name;
+	    var artistName = song.artist_name;
+	    var genre = song.genre;
+	    var songRating = song.song_rating;
+	    $('.playlist-songs').append('\n       <article id="search-result-' + index + '" class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n        </article>\n      ');
+	  });
+	};
+
 	$('.submit-button').on('click', getSongResults);
 
 	$("#search-field").keypress(function (e) {
@@ -188,6 +236,9 @@
 	$('.home').on('click', showMainDisplay);
 	$('#favorite-song-list').on('click', '.playlist-add-button', displayPlaylistOptions);
 
+	$('.playlists').on('click', '.playlist-name', getOnePlaylist);
+
+	getPlaylists();
 	getFavorites();
 
 /***/ })
