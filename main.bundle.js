@@ -65,9 +65,47 @@
 
 	var displayFavorites = function displayFavorites(favoriteSongs) {
 	  favoriteSongs.forEach(function (song) {
-	    console.log(song);
-	    $('#favorite-song-list').append('<tr>\n      <td>' + song.name + '</td>\n      <td>' + song.artist_name + '</td>\n      <td>' + song.genre + '</td>\n      <td>' + song.song_rating + '</td>\n      <td><button>Add to Playlist</button></td></tr>');
+	    $('#favorite-song-list').append('<tr value=' + song.id + '>\n      <td>' + song.name + '</td>\n      <td>' + song.artist_name + '</td>\n      <td>' + song.genre + '</td>\n      <td>' + song.song_rating + '</td>\n      <td><button class=\'playlist-add-button\'>Add to Playlist</button></td></tr>');
 	  });
+	  setPlaylistSelectOptions();
+	};
+
+	var setPlaylistSelectOptions = function setPlaylistSelectOptions() {
+	  // get all Playlists from Andrew's fetch call
+	  // test names for now
+	  //also need to pull in the ids and pass them through to the list items
+	  var option1 = 'Rock';
+	  var option2 = 'Pop';
+
+	  $('.playlist-add-button').append('<div class=\'playlist-drop-down\'>\n  <ul><li>' + option1 + '</li>\n  <li>' + option2 + '</li>\n  </ul></div>');
+	};
+
+	var displayPlaylistOptions = function displayPlaylistOptions(event) {
+	  $('.playlist-drop-down').css('visibility', 'hidden');
+	  $(event.target).children().css('visibility', 'visible');
+	  $('.playlist-drop-down li').click(function (e) {
+	    e.stopPropagation();
+	    var playlist = $(e.target).text();
+	    var songId = parseInt($(e.target).parents('tr').attr('value'));
+	    addSongToPlaylist(playlist, songId);
+	  });
+	};
+
+	var addSongToPlaylist = function addSongToPlaylist(playlist, songId) {
+	  fetch(playBackUrl + '/playlists/' + playlist + '/songs/' + songId, {
+	    method: 'POST',
+	    headers: { "Content-Type": "application/json" }
+	  }).then(function (response) {
+	    return response.json();
+	  }).then(function (message) {
+	    return addedSongToPlaylistResponse(message);
+	  }).catch(function (error) {
+	    return { error: error };
+	  });
+	};
+
+	var addedSongToPlaylistResponse = function addedSongToPlaylistResponse(message) {
+	  $('.messages').html('<p>' + message + '</p>');
 	};
 
 	var getSongResults = function getSongResults() {
@@ -133,6 +171,7 @@
 
 	var clearMessages = function clearMessages() {
 	  $('.messages').html('');
+	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var getPlaylists = function getPlaylists() {
@@ -195,6 +234,7 @@
 	$('.song-search').on('click', '.favorite-button', favoriteSong);
 	$(document).on('click', clearMessages);
 	$('.home').on('click', showMainDisplay);
+	$('#favorite-song-list').on('click', '.playlist-add-button', displayPlaylistOptions);
 
 	$('.playlists').on('click', '.playlist-name', getOnePlaylist);
 
