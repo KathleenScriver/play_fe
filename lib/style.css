@@ -153,10 +153,12 @@ tr:hover {
 .playlist-drop-down li {
   padding: 1.5px;
   border-bottom: 1px solid black;
+  color: white;
 }
 
 .playlist-drop-down li:hover {
   background-color: yellow;
+  color: black;
 }
 
 .playlist-add-button:target > div {
