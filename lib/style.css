@@ -172,14 +172,22 @@ tr:hover {
 }
 .playlist-songs {
   display: none;
-  width: 800px;
-  height: 2000px;
+  width: 70%;
+  height: auto;
   z-index: 2;
   position: absolute;
   top: 90px;
   left: 5px;
   background-color: #FDBBC1;
+  opacity: 0.95;
+  border-radius: 20px;
 }
+.list-songs {
+  flex-flow: row wrap;
+  display: flex;
+  width: 100%
+}
+
 .playlists h2 {
   font-size: 2.5rem;
   font-weight: 800;
