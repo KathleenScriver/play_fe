@@ -81,7 +81,7 @@ body {
 .favorites {
   background-color: #fffdd0;
   opacity: 0.6;
-  width: 60%;
+  width: 70%;
   margin: 8px;
   border-radius: 30px;
 }
@@ -95,11 +95,28 @@ body {
 .playlists {
   background-color: #fffdd0;
   opacity: 0.6;
-  width: 40%;
+  width: 30%;
   margin: 8px;
   border-radius: 30px;
 }
+.playlist-songs {
+  display: none;
+  width: 800px;
+  height: 2000px;
+  z-index: 2;
+  position: absolute;
+  top: 90px;
+  left: 5px;
+  background-color: #FDBBC1;
+}
 .playlists h2 {
+  font-size: 2.5rem;
+  font-weight: 800;
+  text-align: center;
+  padding: 4% 0% 4%;
+}
+
+.playlist-songs h2 {
   font-size: 2.5rem;
   font-weight: 800;
   text-align: center;
