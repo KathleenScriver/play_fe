@@ -167,18 +167,30 @@ tr:hover {
 
 .song-search {
   display: none;
-  width: 800px;
-  height: 2000px;
+  width: 100%;
+  height: auto;
   z-index: 2;
   position: absolute;
   top: 90px;
   left: 5px;
   background-color: #FDBBC1;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  opacity: 0.95;
+  border-radius: 20px;
 }
 
 .searched-song {
   align-self: flex-start;
-  margin: 8px;
-  width: auto;
+  margin: 15px;
+  width: 150px;
+  height: 150px;
   line-height: 1.2;
+  background-color: #4A0206;
+  color: #fffdd0;
+  padding: 10px;
+  border-radius: 15px;
+  text-align: center;
 }
