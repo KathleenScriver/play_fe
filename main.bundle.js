@@ -51,6 +51,7 @@
 
 	var showMainDisplay = function showMainDisplay() {
 	  $('.song-search').hide();
+	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var getFavorites = function getFavorites() {
@@ -67,17 +68,27 @@
 	  favoriteSongs.forEach(function (song) {
 	    $('#favorite-song-list').append('<tr value=' + song.id + '>\n      <td>' + song.name + '</td>\n      <td>' + song.artist_name + '</td>\n      <td>' + song.genre + '</td>\n      <td>' + song.song_rating + '</td>\n      <td><button class=\'playlist-add-button\'>Add to Playlist</button></td></tr>');
 	  });
-	  setPlaylistSelectOptions();
+	  getPlaylistSelectOptions();
 	};
 
-	var setPlaylistSelectOptions = function setPlaylistSelectOptions() {
+	var getPlaylistSelectOptions = function getPlaylistSelectOptions() {
 	  // get all Playlists from Andrew's fetch call
 	  // test names for now
 	  //also need to pull in the ids and pass them through to the list items
-	  var option1 = 'Rock';
-	  var option2 = 'Pop';
 
-	  $('.playlist-add-button').append('<div class=\'playlist-drop-down\'>\n  <ul><li>' + option1 + '</li>\n  <li>' + option2 + '</li>\n  </ul></div>');
+	  fetch(playBackUrl + '/playlists').then(function (reponse) {
+	    return response.json();
+	  }).then(function (allPlaylistsInfo) {
+	    return setPlaylistSelectOptions(allPlaylistsInfo);
+	  }).catch(function (error) {
+	    return { error: error };
+	  });
+	};
+
+	var setPlaylistSelectOptions = function setPlaylistSelectOptions(playlists) {
+	  playlists.forEach(function (playlist) {
+	    $('.playlist-add-button').append('<div class=\'playlist-drop-down\'>\n    <ul><li value=' + playlist.id + '>' + playlist.playlist_name + '</li>\n    </ul></div>');
+	  });
 	};
 
 	var displayPlaylistOptions = function displayPlaylistOptions(event) {
@@ -105,6 +116,7 @@
 	};
 
 	var addedSongToPlaylistResponse = function addedSongToPlaylistResponse(message) {
+	  $('.messages').focus();
 	  $('.messages').html('<p>' + message + '</p>');
 	};
 
@@ -126,7 +138,7 @@
 	};
 
 	var displaySongs = function displaySongs(musicInfo) {
-	  $('.song-search').css('display', 'block');
+	  $('.song-search').css('display', 'flex');
 	  var songs = musicInfo.message.body.track_list;
 
 	  songs.forEach(function (song, index) {
@@ -167,11 +179,11 @@
 	var addFavoriteResponse = function addFavoriteResponse(response) {
 	  var songName = response.songs.name;
 	  $('.messages').html('<p>' + songName + ' has been added to your favorites!</p>').focus();
+	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var clearMessages = function clearMessages() {
 	  $('.messages').html('');
-	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var getPlaylists = function getPlaylists() {
