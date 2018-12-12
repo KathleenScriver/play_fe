@@ -57,15 +57,17 @@
 	  fetch(playBackUrl + '/favorites').then(function (response) {
 	    return response.json();
 	  }).then(function (favoriteInfo) {
-	    return displayFavorites(favroiteInfo);
+	    return displayFavorites(favoriteInfo);
 	  }).catch(function (error) {
 	    return console.log({ error: error });
 	  });
 	};
 
-	var displayFavorites = function displayFavorites(favoriteInfo) {
-	  console.log(favoriteInfo);
-	  $('.favorites table').html('<tr><td>');
+	var displayFavorites = function displayFavorites(favoriteSongs) {
+	  favoriteSongs.forEach(function (song) {
+	    console.log(song);
+	    $('#favorite-song-list').append('<tr>\n      <td>' + song.name + '</td>\n      <td>' + song.artist_name + '</td>\n      <td>' + song.genre + '</td>\n      <td>' + song.song_rating + '</td>\n      <td><button>Add to Playlist</button></td></tr>');
+	  });
 	};
 
 	var getSongResults = function getSongResults() {
@@ -155,8 +157,8 @@
 	};
 
 	var getOnePlaylist = function getOnePlaylist(event) {
-	  var playlist_name = $(event.target).siblings('p.playlist_name').prevObject[0].innerHTML;
-	  var id = $(event.target).siblings('p.playlist_name').prevObject[0].id;
+	  var playlist_name = $(event.target).text();
+	  var id = $(event.target).attr('id');
 	  fetch(playBackUrl + '/playlists/' + id + '/songs').then(function (response) {
 	    return response.json();
 	  }).then(function (playlistSongs) {
@@ -171,9 +173,7 @@
 	  var playlist_name = playlist.playlist_name;
 	  var songs = playlist.songs;
 	  $('.playlist-songs h2').text('' + playlist_name);
-	  // $('favorites').append(`
-	  //   <h2>${playlist_name}</h2>
-	  //   `)
+
 	  songs.forEach(function (song, index) {
 	    var name = song.name;
 	    var artistName = song.artist_name;
@@ -196,11 +196,10 @@
 	$(document).on('click', clearMessages);
 	$('.home').on('click', showMainDisplay);
 
-	getFavorites();
-
 	$('.playlists').on('click', '.playlist-name', getOnePlaylist);
 
 	getPlaylists();
+	getFavorites();
 
 /***/ })
 /******/ ]);
