@@ -51,6 +51,7 @@
 
 	var showMainDisplay = function showMainDisplay() {
 	  $('.song-search').hide();
+
 	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
@@ -220,6 +221,7 @@
 	};
 
 	var displayOnePlaylistsSongs = function displayOnePlaylistsSongs(playlist) {
+	  // $('.playlist-songs').html('<h2></h2>');
 	  $('.playlist-songs').css('display', 'block');
 	  var playlist_name = playlist.playlist_name;
 	  var songs = playlist.songs;
@@ -230,7 +232,7 @@
 	    var artistName = song.artist_name;
 	    var genre = song.genre;
 	    var songRating = song.song_rating;
-	    $('.playlist-songs').append('\n       <article id="search-result-' + index + '" class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n        </article>\n      ');
+	    $('.list-songs').append('\n       <article id="search-result-' + index + '" class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n        </article>\n      ');
 	  });
 	};
 
