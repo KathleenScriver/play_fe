@@ -10,21 +10,30 @@
 <body>
 
   <header>
-    <h1>Play</h1>
-    <nav>
-      <div class="form">
-        <input type="text" id="search-field" class="search-field" placeholder="Artist's name">
-        <input onclick="this.blur();" class="submit-button" type="submit" value="Search Artist">
-      </div>
-    </nav>
-  </header>
+      <button class='home'>Play</button>
+      <nav>
+        <div class="form">
+          <input type="text" id="search-field" class="search-field" placeholder="Artist's name">
+          <input onclick="this.blur();" class="submit-button" type="submit" value="Search Artist">
+        </div>
+      </nav>
+    </header>
 
   <div class='messages'></div>
 
-  <div class='main-content'>
-    <div class='favorites'>
-      <h2></h2>
-    </div>
+    <div class='main-content'>
+      <div class='favorites'>
+        <h2>Favorite Songs</h2>
+        <table id='favorite-song-list'>
+          <tr>
+            <th class='favorites-title'>Title</th>
+            <th class='favorites-artist'>Artist</th>
+            <th class='favorites-genre'>Genre</th>
+            <th class='favorites-rating'>Rating</th>
+            <th class='playlist-add-button'></th>
+          </tr>
+        </table>
+      </div>
 
     <div class='playlists'>
       <h2> Playlists</h2>
@@ -33,7 +42,7 @@
 
   <div class='playlist-songs'>
     <h2></h2>
-  </div>  
+  </div>
 
   <div class='song-search'></div>
 

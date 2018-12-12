@@ -49,6 +49,25 @@
 	//base URL for Play BE endpoints
 	var playBackUrl = 'https://play-be.herokuapp.com/api/v1';
 
+	var showMainDisplay = function showMainDisplay() {
+	  $('.song-search').hide();
+	};
+
+	var getFavorites = function getFavorites() {
+	  fetch(playBackUrl + '/favorites').then(function (response) {
+	    return response.json();
+	  }).then(function (favoriteInfo) {
+	    return displayFavorites(favroiteInfo);
+	  }).catch(function (error) {
+	    return console.log({ error: error });
+	  });
+	};
+
+	var displayFavorites = function displayFavorites(favoriteInfo) {
+	  console.log(favoriteInfo);
+	  $('.favorites table').html('<tr><td>');
+	};
+
 	var getSongResults = function getSongResults() {
 	  $('.song-search').html('');
 	  var artist = $('.search-field').val();
@@ -67,6 +86,7 @@
 	};
 
 	var displaySongs = function displaySongs(musicInfo) {
+	  $('.song-search').css('display', 'block');
 	  var songs = musicInfo.message.body.track_list;
 
 	  songs.forEach(function (song, index) {
@@ -75,6 +95,7 @@
 	    var noGenre = song.track.primary_genres.music_genre_list.length === 0;
 	    var genre = noGenre ? "N/A" : song.track.primary_genres.music_genre_list[0].music_genre.music_genre_name;
 	    var songRating = song.track.track_rating;
+
 	    $('.song-search').append('\n       <article id="search-result-' + index + '" class=\'searched-song\'>\n         <p class=\'name\'>' + name + '</p>\n         <p class=\'artist-name\'>' + artistName + '</p>\n         <p class=\'genre\'>' + genre + '</p>\n         <p class=\'song-rating\'>' + songRating + '</p>\n         <button class=\'favorite-button\'>Favorite</button>\n        </article>\n      ');
 	  });
 	};
@@ -173,6 +194,9 @@
 
 	$('.song-search').on('click', '.favorite-button', favoriteSong);
 	$(document).on('click', clearMessages);
+	$('.home').on('click', showMainDisplay);
+
+	getFavorites();
 
 	$('.playlists').on('click', '.playlist-name', getOnePlaylist);
 
