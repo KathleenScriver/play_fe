@@ -51,6 +51,7 @@
 
 	var showMainDisplay = function showMainDisplay() {
 	  $('.song-search').hide();
+	  $('.playlist-songs').hide();
 
 	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
@@ -73,11 +74,7 @@
 	};
 
 	var getPlaylistSelectOptions = function getPlaylistSelectOptions() {
-	  // get all Playlists from Andrew's fetch call
-	  // test names for now
-	  //also need to pull in the ids and pass them through to the list items
-
-	  fetch(playBackUrl + '/playlists').then(function (reponse) {
+	  fetch(playBackUrl + '/playlists').then(function (response) {
 	    return response.json();
 	  }).then(function (allPlaylistsInfo) {
 	    return setPlaylistSelectOptions(allPlaylistsInfo);
@@ -87,8 +84,9 @@
 	};
 
 	var setPlaylistSelectOptions = function setPlaylistSelectOptions(playlists) {
+	  $('.playlist-add-button').append('<div class=\'playlist-drop-down\'><ul></ul>');
 	  playlists.forEach(function (playlist) {
-	    $('.playlist-add-button').append('<div class=\'playlist-drop-down\'>\n    <ul><li value=' + playlist.id + '>' + playlist.playlist_name + '</li>\n    </ul></div>');
+	    $('.playlist-drop-down ul').append('\n      <li value=' + playlist.id + '>' + playlist.playlist_name + '</li>');
 	  });
 	};
 
@@ -97,14 +95,14 @@
 	  $(event.target).children().css('visibility', 'visible');
 	  $('.playlist-drop-down li').click(function (e) {
 	    e.stopPropagation();
-	    var playlist = $(e.target).text();
-	    var songId = parseInt($(e.target).parents('tr').attr('value'));
-	    addSongToPlaylist(playlist, songId);
+	    var playlistId = $(e.target).attr('value');
+	    var songId = $(e.target).parents('tr').attr('value');
+	    addSongToPlaylist(playlistId, songId);
 	  });
 	};
 
-	var addSongToPlaylist = function addSongToPlaylist(playlist, songId) {
-	  fetch(playBackUrl + '/playlists/' + playlist + '/songs/' + songId, {
+	var addSongToPlaylist = function addSongToPlaylist(playlistId, songId) {
+	  fetch(playBackUrl + '/playlists/' + playlistId + '/songs/' + songId, {
 	    method: 'POST',
 	    headers: { "Content-Type": "application/json" }
 	  }).then(function (response) {
