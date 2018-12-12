@@ -51,6 +51,7 @@
 
 	var showMainDisplay = function showMainDisplay() {
 	  $('.song-search').hide();
+	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var getFavorites = function getFavorites() {
@@ -105,6 +106,7 @@
 	};
 
 	var addedSongToPlaylistResponse = function addedSongToPlaylistResponse(message) {
+	  $('.messages').focus();
 	  $('.messages').html('<p>' + message + '</p>');
 	};
 
@@ -126,7 +128,7 @@
 	};
 
 	var displaySongs = function displaySongs(musicInfo) {
-	  $('.song-search').css('display', 'block');
+	  $('.song-search').css('display', 'flex');
 	  var songs = musicInfo.message.body.track_list;
 
 	  songs.forEach(function (song, index) {
@@ -167,11 +169,11 @@
 	var addFavoriteResponse = function addFavoriteResponse(response) {
 	  var songName = response.songs.name;
 	  $('.messages').html('<p>' + songName + ' has been added to your favorites!</p>').focus();
+	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var clearMessages = function clearMessages() {
 	  $('.messages').html('');
-	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var getPlaylists = function getPlaylists() {
@@ -208,6 +210,7 @@
 	};
 
 	var displayOnePlaylistsSongs = function displayOnePlaylistsSongs(playlist) {
+	  $('.playlist-songs').html('<h2></h2>');
 	  $('.playlist-songs').css('display', 'block');
 	  var playlist_name = playlist.playlist_name;
 	  var songs = playlist.songs;
