@@ -8,3 +8,5 @@ Visit the deployed site here: www.play-project.surge.sh
 ###### Core Contributors
   - Kathleen Yruegas | github.com/kathleenyruegas
   - Andrew Tobin | github.com/andrewetobin
+
+Add in known issues - slow post
