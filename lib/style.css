@@ -17,7 +17,8 @@ header button {
  font-size: 50px;
  height: 50px;
  width: 70px;
- margin-top: 10px;
+ margin-top: 6px;
+ margin-bottom: 6px;
  font-family: Quicksand;
  font-weight: 800;
  border: none;
@@ -61,19 +62,25 @@ header button:hover {
 
 /* Body */
 body {
- background-color: #710006;
  font-family: Quicksand;
+ background-image: url(background.jpg);
+ background-size: cover;
+ background-repeat: no-repeat;
+ background-position: center;
+ background-attachment: fixed;
 }
 
 .messages {
-  width: auto;
+  width: 400px;
+  height: auto;
   font-size: 16px;
-  background-color: #FDBBC1;
+  background-color: #FFFDD0;
   text-align: center;
-}
-
-.messages p {
-  margin: 4px;
+  z-index: 3;
+  left: 200px;
+  border-radius: 20px;
+  padding: 6px;
+  position: absolute;
 }
 
 .main-content {
@@ -119,7 +126,6 @@ th, td {
   padding: 10px;
   border-bottom: 1px solid #ddd;
   position:relative;
-
 }
 
 tr:hover {
@@ -170,6 +176,7 @@ tr:hover {
   background-color: #DDD2C2;
   opacity: 0.9;
   width: 30%;
+  height: 100%;
   margin: 8px;
   border-radius: 30px;
 }
@@ -227,34 +234,35 @@ tr:hover {
   margin: 15px;
   width: 150px;
   height: 150px;
-  line-height: 1.2;
-  background-color: #4A0206;
+  background-color: #EF3E4D;
   color: #fffdd0;
   padding: 10px;
   border-radius: 15px;
   text-align: center;
   position: relative;
+  font-size: 15px;
+}
+
+.searched-song p {
+  padding: 4px;
 }
 
 .favorite-button {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: 15px;
   transform: translate(-50%);
-  background-color: #EF3E4D;
+  background-color: #BB0D1A;
   border-radius: 20px;
   font-style: Quicksand;
   border: none;
   color: #fffdd0;
 }
+
 .playlist-name {
   font-size: 1.5rem;
   font-weight: 600;
   text-align: center;
-  padding: 2%;
+  padding: 20px;
   cursor: pointer;
-}
-.main-content {
-  background: url(background.jpg) no-repeat center center;
-  margin: 0;
 }
