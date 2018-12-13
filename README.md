@@ -54,7 +54,7 @@ Clicking on a Playlist title will display the songs in that playlist.
 
 <img src='./assets/playlist_view.png'>
 
-### Gif Run-through
+### Run-through
 
 ![](play.gif)
 
