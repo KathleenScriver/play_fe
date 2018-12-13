@@ -52,11 +52,11 @@
 	var showMainDisplay = function showMainDisplay() {
 	  $('.song-search').hide();
 	  $('.playlist-songs').hide();
-
 	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var getFavorites = function getFavorites() {
+	  $('.messages').hide();
 	  fetch(playBackUrl + '/favorites').then(function (response) {
 	    return response.json();
 	  }).then(function (favoriteInfo) {
@@ -116,7 +116,8 @@
 
 	var addedSongToPlaylistResponse = function addedSongToPlaylistResponse(message) {
 	  $('.messages').focus();
-	  $('.messages').html('<p>' + message + '</p>');
+	  $('.messages').html('<p>' + message.message + '</p>');
+	  $('.messages').show();
 	};
 
 	var getSongResults = function getSongResults() {
@@ -178,11 +179,13 @@
 	var addFavoriteResponse = function addFavoriteResponse(response) {
 	  var songName = response.songs.name;
 	  $('.messages').html('<p>' + songName + ' has been added to your favorites!</p>').focus();
+	  $('.messages').show();
 	  $('.playlist-drop-down').css('visibility', 'hidden');
 	};
 
 	var clearMessages = function clearMessages() {
 	  $('.messages').html('');
+	  $('.messages').hide();
 	};
 
 	var getPlaylists = function getPlaylists() {
