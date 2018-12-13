@@ -218,7 +218,7 @@ tr:hover {
   position: absolute;
   top: 90px;
   left: 5px;
-  background-color: #FDBBC1;
+  background-color: #F6E1DC;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
@@ -232,21 +232,25 @@ tr:hover {
   margin: 15px;
   width: 150px;
   height: 150px;
-  line-height: 1.2;
-  background-color: #4A0206;
+  background-color: #EF3E4D;
   color: #fffdd0;
   padding: 10px;
   border-radius: 15px;
   text-align: center;
   position: relative;
+  font-size: 15px;
+}
+
+.searched-song p {
+  padding: 4px;
 }
 
 .favorite-button {
   position: absolute;
   left: 50%;
-  bottom: 20px;
+  bottom: 15px;
   transform: translate(-50%);
-  background-color: #EF3E4D;
+  background-color: #BB0D1A;
   border-radius: 20px;
   font-style: Quicksand;
   border: none;
