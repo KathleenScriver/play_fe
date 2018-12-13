@@ -219,7 +219,7 @@
 	};
 
 	var displayOnePlaylistsSongs = function displayOnePlaylistsSongs(playlist) {
-	  // $('.playlist-songs').html('<h2></h2>');
+	  $('.list-songs').html('');
 	  $('.playlist-songs').css('display', 'block');
 	  var playlist_name = playlist.playlist_name;
 	  var songs = playlist.songs;
