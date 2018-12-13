@@ -14,7 +14,7 @@ header button {
  float: left;
  color: #fffdd0;
  background-color: #710006;
- font-size: 30px;
+ font-size: 50px;
  height: 50px;
  width: 70px;
  margin-top: 10px;
@@ -61,7 +61,7 @@ header button:hover {
 
 /* Body */
 body {
- background-color: #EF3E4D;
+ background-color: #710006;
  font-family: Quicksand;
 }
 
@@ -252,4 +252,8 @@ tr:hover {
   text-align: center;
   padding: 2%;
   cursor: pointer;
+}
+.main-content {
+  background: url(background.jpg) no-repeat center center;
+  margin: 0;
 }
