@@ -54,6 +54,9 @@ Clicking on a Playlist title will display the songs in that playlist.
 
 <img src='./assets/playlist_view.png'>
 
+### Gif Run-through
+
+  <iframe>src='./assets/play.gif'</iframe>
 
 ### Future Iterations
 

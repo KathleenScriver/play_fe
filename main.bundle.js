@@ -53,10 +53,13 @@
 	  $('.song-search').hide();
 	  $('.playlist-songs').hide();
 	  $('.playlist-drop-down').css('visibility', 'hidden');
+	  getFavorites();
 	};
 
 	var getFavorites = function getFavorites() {
 	  $('.messages').hide();
+	  $('#favorite-song-list').html('');
+
 	  fetch(playBackUrl + '/favorites').then(function (response) {
 	    return response.json();
 	  }).then(function (favoriteInfo) {
