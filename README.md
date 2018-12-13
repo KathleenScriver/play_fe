@@ -56,7 +56,7 @@ Clicking on a Playlist title will display the songs in that playlist.
 
 ### Gif Run-through
 
-[Imgur](https://i.imgur.com/Sc3OBUH.gifv)
+![](https://imgur.com/Sc3OBUH)
 
 
 ### Future Iterations
