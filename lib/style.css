@@ -93,7 +93,7 @@ body {
 
 .favorites {
   font-weight: 800;
-  background-color: #DDD2C2;
+  background-color: #ffe7e8;
   opacity: 0.9;
   width: 70%;
   height: 100%;
@@ -173,7 +173,7 @@ tr:hover {
 }
 
 .playlists {
-  background-color: #DDD2C2;
+  background-color: #ffe7e8;
   opacity: 0.9;
   width: 30%;
   height: 100%;
@@ -188,7 +188,7 @@ tr:hover {
   position: absolute;
   top: 90px;
   left: 5px;
-  background-color: #F2DFD7;
+  background-color: #ffe7e8;
   opacity: 0.95;
   border-radius: 20px;
 }
@@ -220,12 +220,11 @@ tr:hover {
   position: absolute;
   top: 90px;
   left: 5px;
-  background-color: #fffdd0;
+  background-color: #ffe7e8;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
-  opacity: 0.95;
   border-radius: 20px;
 }
 
@@ -234,7 +233,7 @@ tr:hover {
   margin: 15px;
   width: 150px;
   height: 150px;
-  background-color: #EF3E4D;
+  background-color: #83434D;
   color: #fffdd0;
   padding: 10px;
   border-radius: 15px;
