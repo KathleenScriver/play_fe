@@ -85,8 +85,9 @@ body {
 }
 
 .favorites {
+  font-weight: 800;
   background-color: #fffdd0;
-  opacity: 0.6;
+  opacity: 0.7;
   width: 70%;
   height: 100%;
   margin: 8px;
@@ -167,7 +168,7 @@ tr:hover {
 
 .playlists {
   background-color: #fffdd0;
-  opacity: 0.6;
+  opacity: 0.7;
   width: 30%;
   margin: 8px;
   border-radius: 30px;
