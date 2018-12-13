@@ -1,6 +1,6 @@
 # Play (Front End)
 
-Visit the deployed site here: https://github.com/KathleenYruegas/play_fe
+Visit the deployed site here: https://play-project.herokuapp.com/
 
 This project consumes API endpoints created from our back end app. You can visit this at: https://github.com/andrewetobin/play_be
 
