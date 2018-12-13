@@ -66,14 +66,16 @@ body {
 }
 
 .messages {
-  width: auto;
+  width: 400px;
+  height: auto;
   font-size: 16px;
-  background-color: #FDBBC1;
+  background-color: #FFFDD0;
   text-align: center;
-}
-
-.messages p {
-  margin: 4px;
+  z-index: 3;
+  left: 200px;
+  border-radius: 20px;
+  padding: 6px;
+  position: absolute;
 }
 
 .main-content {
