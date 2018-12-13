@@ -22,8 +22,8 @@ Our goals was to build a personal playlist and song manager. It's currently only
 **In order to clone down and run this code locally, you will need an API Key to MusixMatch | https://developer.musixmatch.com/**
 
 - Fork or clone this response
-- Run 'npm install'
-- Run 'npm run dev' to start up server on your local machine
+- Run `npm install`
+- Run `npm run dev` to start up server on your local machine
 
 ### Future Iterations
 
