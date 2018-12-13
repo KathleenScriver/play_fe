@@ -25,12 +25,41 @@ Our goals was to build a personal playlist and song manager. It's currently only
 - Run `npm install`
 - Run `npm run dev` to start up server on your local machine
 
+### Features
+
+**Landing Page**
+On first arrival to the site, the user will see their favorited songs and their playlists.
+
+<img src='./assets/home_page.png'>
+
+
+
+**Artist Search**
+By entering an artist into the search field, a list of their songs are generated.
+
+<img src='./assets/song_search.png'>
+
+
+
+**Add to Playlist**
+When clicking on Add to Playlist, it will list the current playlists' titles.
+
+<img src='./assets/add_to_playlist.png'>
+
+
+
+**Playlist Songs**
+Clicking on a Playlist title will display the songs in that playlist.
+
+<img src='./assets/playlist_view.png'>
+
+
 ### Future Iterations
 
 - Add ability to add new playlists.
 - Add ability to delete songs and playlists.
 - Login functionality to support multiple users and accounts.
-- Song information when a user clicks on a specific song. 
+- Song information when a user clicks on a specific song.
 
 ###### Core Contributors
   - Kathleen Yruegas | github.com/kathleenyruegas
