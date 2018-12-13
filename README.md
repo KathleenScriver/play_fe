@@ -20,6 +20,7 @@ Our goals was to build a personal playlist and song manager. It's currently only
 
 ### Running Code
 **In order to clone down and run this code locally, you will need an API Key to MusixMatch | https://developer.musixmatch.com/**
+(This API requires you install a CORS extension to your browser. If you're using Chrome, you can retrieve the extension here: https://chrome.google.com/webstore/detail/allow-control-allow-origi/nlfbmbojpeacfghkpbjhddihlkkiljbi?hl=en)
 
 - Fork or clone this response
 - Run `npm install`
