@@ -175,13 +175,13 @@ tr:hover {
 }
 .playlist-songs {
   display: none;
-  width: 70%;
+  width: 68.5%;
   height: auto;
   z-index: 2;
   position: absolute;
   top: 90px;
   left: 5px;
-  background-color: #FDBBC1;
+  background-color: #fffdd0;
   opacity: 0.95;
   border-radius: 20px;
 }
