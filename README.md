@@ -56,7 +56,7 @@ Clicking on a Playlist title will display the songs in that playlist.
 
 ### Gif Run-through
 
-<style>.embed-container {position: relative; padding-bottom: 120%; height: 0; overflow: hidden;} .embed-container iframe, .embed-container object, .embed-container embed { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }</style><div class='embed-container'><iframe src='./assets/play.gif' frameborder='0' scrolling='no' allowtransparency='true'></iframe></div>
+[Imgur](https://i.imgur.com/Sc3OBUH.gifv)
 
 
 ### Future Iterations
